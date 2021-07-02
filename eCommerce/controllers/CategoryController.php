@@ -4,6 +4,7 @@
 use app\models\Category;
 use app\models\Product;
 use Yii;
+use yii\data\Pagination;
  class CategoryController extends AppController{
   public function actionIndex(){
      $hits = Product::find()->where(['hit'=>'1'])->limit(6)->all();
@@ -13,9 +14,12 @@ use Yii;
     }
 public function actionView(){
  $id = Yii::$app->request->get('id');
- $products = Product::find()->where(['category_id' => $id])-> limit(2)->all();
+ //$products = Product::find()->where(['category_id' => $id])-> limit(2)->all();
+ $query = Product::find()->where(['category_id' => $id]);
+ $pages = new Pagination(['totalCount'=> $query->count(),'pageSize'=> 10]);
+ $products = $query->offset($pages->offset)->limit($pages->limit)->all();
  $category=Category::findOne($id);
  $this->setMeta('E-SHOPER | ' . $category->name, $category->keywords, $category->description);
- return $this->render('view', compact('products', 'category'));
+ return $this->render('view', compact('products','pages', 'category'));
     }
 }

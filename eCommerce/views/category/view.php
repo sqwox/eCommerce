@@ -21,12 +21,15 @@ use yii\helpers\Html;
                                             <?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
                                         </ul>
                          </div>
+						 <div class="clearfix"></div>	
 						<div class="shipping text-center"><!--shipping-->
 							<img src="/images/home/shipping.jpg" alt="" />
 						</div><!--/shipping-->
 					</div>
 				</div>	
+				<div class="clearfix"></div>	
 				<div class="col-sm-9 padding-right">
+				<div class="clearfix"></div>	
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center"> категория</h2>
                         <?php if (!empty($products)): ?>
@@ -55,6 +58,13 @@ use yii\helpers\Html;
 				<div class="clearfix"></div>
 				<?php endif; ?>														
 						<?php endforeach; ?>
+						<div class="clearfix"></div>	
+						<?php
+                       // display pagination
+                       echo yii\widgets\LinkPager::widget([
+                       'pagination' => $pages,
+                         ]);                          						 
+						?>
 						<?php else: ?>	
 							<h2>Здесь товаров пока нет</h2>
 						<?php endif; ?>														
@@ -62,12 +72,12 @@ use yii\helpers\Html;
 							</div>
 						</div>	
 						<div class="clearfix"></div>			
-						<ul class="pagination">
+						<!--<ul class="pagination">
 							<li class="active"><a href="">1</a></li>
 							<li><a href="">2</a></li>
 							<li><a href="">3</a></li>
 							<li><a href="">&raquo;</a></li>
-						</ul>
+						</ul>-->
 					</div>
 				</div>
 			</div>
