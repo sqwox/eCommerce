@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
-
+use yii\helpers\Url;
 ?>
 
 <section id="advertisement">
@@ -40,8 +40,8 @@ use yii\helpers\Html;
 								<div class="single-products">
 									<div class="productinfo text-center">
 									<?= Html::img("@web/images/products/{$product->img}", [ 'alt' => $product->name ]) ?>
-										<h2>$56</h2>
-										<p><?php $product -> name ?></p>
+									<p><a href="<?= Url::to(['product/view', 'id' => $product->id]) ?>"></p>
+										<?= $product->name ?></a></p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 									</div>									
 								</div>
