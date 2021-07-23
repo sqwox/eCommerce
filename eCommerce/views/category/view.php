@@ -1,34 +1,35 @@
 <?php
 
-/* @var $this yii\web\View */
+use yii\widgets\LinkPager;
 use yii\helpers\Html;
 use yii\helpers\Url;
-?>
 
+?>
 <section id="advertisement">
 		<div class="container">
-			<img src="/images/shop/advertisement.jpg" alt="" />
+			<img src="/images/shop/1.jpg" alt="" />
 		</div>
-	</section>
+</section>
 	
-	<section>
+<section>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
 						<h2>Category</h2>
-						<ul class="catalog category-products">
-                                            <?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
-                                        </ul>
-                         </div>
-						 <div class="clearfix"></div>	
+                                                <ul class="catalog category-products">
+                                                    <?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
+                                                </ul>
+						
+				
+						
 						<div class="shipping text-center"><!--shipping-->
 							<img src="/images/home/shipping.jpg" alt="" />
 						</div><!--/shipping-->
+						
 					</div>
-				</div>	
-				<div class="clearfix"></div>	
-				<div class="col-sm-9 padding-right">
+				</div>
+						<div class="col-sm-9 padding-right">
 				<div class="clearfix"></div>	
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center"> категория</h2>
@@ -59,30 +60,26 @@ use yii\helpers\Url;
 				<?php endif; ?>														
 						<?php endforeach; ?>
 						<div class="clearfix"></div>	
+		
 						<?php
-                       // display pagination
-                       echo yii\widgets\LinkPager::widget([
-                       'pagination' => $pages,
-                         ]);                          						 
-						?>
+                                                        echo LinkPager::widget(['pagination' => $pages]);
+                                                    ?>
+
+                     
 						<?php else: ?>	
-							<h2>Здесь товаров пока нет</h2>
+							<h2>ничего не найдено</h2>
 						<?php endif; ?>														
 								</div>
 							</div>
 						</div>	
 						<div class="clearfix"></div>			
-						<!--<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">&raquo;</a></li>
-						</ul>-->
+					
 					</div>
+				</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	<script>
+</section>
+<script>
     $( ".catalog" ).dcAccordion();
 </script>
