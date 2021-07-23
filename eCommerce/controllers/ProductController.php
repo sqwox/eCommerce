@@ -5,7 +5,7 @@ use Yii;
 use app\models\Product;
 class ProductController extends AppController{
 public function actionView(){
-    $id =Yii::$app->request->get('id');
+    $id =Yii::$app->request->get();
     $product = Product::findOne($id);
     $this->setMeta('E-SHOPER | ' . $product->name, $product->keywords, $product->description);
     return $this->render('view', compact('product'));
