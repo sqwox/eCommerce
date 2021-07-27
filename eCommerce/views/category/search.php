@@ -5,11 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<section id="advertisement">
-		<div class="container">
-			<img src="/images/shop/1.jpg" alt="" />
-		</div>
-</section>
+
 	
 <section>
 		<div class="container">
@@ -30,9 +26,9 @@ use yii\helpers\Url;
 					</div>
 				</div>
 						<div class="col-sm-9 padding-right">
-				<div class="clearfix"></div>	
+				
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Поиск по запросу: <?= $q ?></h2>
+						<h2 class="title text-center"><?= $q ?></h2>
                         <?php if (!empty($products)): ?>
                           <?php $i = 0;foreach ($products as $product) :
 						  ?>

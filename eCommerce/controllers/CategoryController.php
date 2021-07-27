@@ -25,7 +25,12 @@ public function actionView(){
     }
     public function actionSearch(){
       $q = Yii::$app->request->get('q');
-      $query =Product::find()->where(['like', 'name', $q]);
+       $query = Product::find()->where(['like', 'article', $q, ]) ->orWhere(['like', 'name', $q, ]) ->orWhere(['like', 'manufacture', $q, ]);
+      
+
+        //$query = Product::find()->andWhere(['like', 'name', $q, ]);
+      
+ 
       $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 10,
        'forcePageParam' => false, 'pageSizeParam' => false]);
       $products = $query->offset($pages->offset)->limit($pages->limit)->all();
